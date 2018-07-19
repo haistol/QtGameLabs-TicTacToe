@@ -30,7 +30,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QWidget" name="gameBoard" native="true"/>
+     <widget class="TicTacToeWidget" name="gameBoard" native="true"/>
     </item>
     <item>
      <widget class="QLabel" name="player2Name">
@@ -62,6 +62,14 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>TicTacToeWidget</class>
+   <extends>QWidget</extends>
+   <header>tictactoewidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
