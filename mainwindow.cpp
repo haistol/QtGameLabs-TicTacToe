@@ -20,4 +20,5 @@ void MainWindow::startNewGame()
 {
     ui->player1Name->setText(tr("Alice"));
     ui->player2Name->setText(tr("Bob"));
+    ui->gameBoard->initNewGame();
 }
