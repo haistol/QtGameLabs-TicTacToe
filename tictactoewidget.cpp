@@ -35,7 +35,57 @@ void TicTacToeWidget::initNewGame()
     setCurrentPlayer(Player::Player1);
 }
 
-void TicTacToeWidget::hanndleButtonClick(int index)
+TicTacToeWidget::Player TicTacToeWidget::checkWinCondition()
+{
+    Player result = Player::Invalid;
+    // check horizontals
+    for(int row = 0; row < 3; ++row) {
+        result = checkLineWinCondition(row * 3,
+                                          row * 3 + 1,
+                                          row * 3 + 2);
+        if (result != Player::Invalid) {
+            return result;
+        }
+    }
+    // check verticals
+    for(int column = 0; column < 3; ++column) {
+         result = checkLineWinCondition(column,
+                                           3 + column,
+                                           6 + column);
+        if (result != Player::Invalid) {
+            return result;
+        }
+    }
+    // check diagonals
+    result = checkLineWinCondition(0, 4, 8);
+    if (result != Player::Invalid) {
+        return result;
+    }
+    result = checkLineWinCondition(2, 4, 6);
+    if (result != Player::Invalid) {
+        return result;
+    }
+    // check if there are unoccupied fields left
+    for(QPushButton *button: m_board) {
+        if(button->text() == " ") {
+            return Player::Invalid;
+        }
+    }
+    return Player::Draw;
+
+}
+
+TicTacToeWidget::Player TicTacToeWidget::checkLineWinCondition(int index1, int index2, int index3)
+{
+    if((m_board[index1]->text() == m_board[index2]->text()) && (m_board[index2]->text()== m_board[index3]->text())){
+        if(m_board[index1]->text() != " "){
+            return m_board[index1]->text() == "X" ? Player::Player1 : Player::Player2;
+        }
+    }
+    return  Player::Invalid;
+}
+
+void TicTacToeWidget::handleButtonClick(int index)
 {
     if(m_currentPlayer == Player::Invalid){
         return; // game is not started
