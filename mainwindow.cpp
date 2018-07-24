@@ -1,3 +1,4 @@
+#include "configurationdialog.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QDebug>
@@ -40,8 +41,12 @@ void MainWindow::updateNameLabels()
 
 void MainWindow::startNewGame()
 {
-    ui->player1Name->setText(tr("Alice"));
-    ui->player2Name->setText(tr("Bob"));
+    ConfigurationDialog dialog(this);
+    if(dialog.exec() == QDialog::Rejected){
+        return; // do nothing if dialog rejectd
+    }
+    ui->player1Name->setText(dialog.player1Name());
+    ui->player2Name->setText(dialog.player2Name());
     ui->gameBoard->initNewGame();
 }
 

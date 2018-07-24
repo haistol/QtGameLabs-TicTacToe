@@ -14,6 +14,10 @@ class ConfigurationDialog : public QDialog
 public:
     explicit ConfigurationDialog(QWidget *parent = nullptr);
     ~ConfigurationDialog();
+    void setPlayer1Name(const QString &p1name);
+    void setPlayer2Name(const QString &p2name);
+    QString player1Name() const;
+    QString player2Name() const;
 
 private:
     Ui::ConfigurationDialog *ui;
