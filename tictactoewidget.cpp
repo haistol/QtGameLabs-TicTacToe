@@ -9,6 +9,8 @@ TicTacToeWidget::TicTacToeWidget(QWidget *parent) : QWidget(parent)
     for (int row = 0; row < 3; ++row) {
         for (int column = 0; column < 3; ++column) {
             QPushButton *button = new QPushButton(" ");
+            button->setSizePolicy(QSizePolicy::Preferred,
+                                  QSizePolicy::Preferred);
             gridLayout->addWidget(button, row, column);
             m_board.append(button);
             mapper->setMapping(button,m_board.count() - 1);
