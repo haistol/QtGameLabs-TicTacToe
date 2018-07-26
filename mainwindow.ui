@@ -76,6 +76,10 @@
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="startNewGame">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/newgame.png</normaloff>:/icons/newgame.png</iconset>
+   </property>
    <property name="text">
     <string>New Game</string>
    </property>
@@ -87,6 +91,10 @@
    </property>
   </action>
   <action name="quit">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/application-exit.png</normaloff>:/icons/application-exit.png</iconset>
+   </property>
    <property name="text">
     <string>Quit</string>
    </property>
@@ -104,6 +112,8 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
