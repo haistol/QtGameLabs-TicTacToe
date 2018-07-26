@@ -6,9 +6,9 @@ Using basic Qt Creator and Qt Framework functionalities, this project show how u
 
 1. Clone this repo.
 2. Install Qt Framework/Creator (https://www.qt.io/download).
-    *The project was coded usign Qt Framework 5.9.6
+    * The project was coded usign Qt Framework 5.9.6
 3. Configure the Qt Creator enviroment for your development platform
-    *(http://doc.qt.io/qt-5/gettingstarted.html)
+    * (http://doc.qt.io/qt-5/gettingstarted.html)
 4. From Qt Creator open the project in the repo direcctory 
 5. Build the project (you can use the tools menu or key shorcut like "Ctrl+b")
 
