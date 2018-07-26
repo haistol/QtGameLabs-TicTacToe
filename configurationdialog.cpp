@@ -1,11 +1,18 @@
 #include "configurationdialog.h"
 #include "ui_configurationdialog.h"
 
+#include <QPushButton>
+
 ConfigurationDialog::ConfigurationDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ConfigurationDialog)
 {
     ui->setupUi(this);
+    connect(ui->player1Name, &QLineEdit::textChanged,
+            this, &ConfigurationDialog::updateOKButttonState);
+    connect(ui->player2Name, &QLineEdit::textChanged,
+            this, &ConfigurationDialog::updateOKButttonState);
+    updateOKButttonState();
 }
 
 ConfigurationDialog::~ConfigurationDialog()
@@ -31,4 +38,11 @@ QString ConfigurationDialog::player1Name() const
 QString ConfigurationDialog::player2Name() const
 {
     return ui->player2Name->text();
+}
+
+void ConfigurationDialog::updateOKButttonState()
+{
+    QPushButton *okButton = ui->buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setEnabled(!ui->player1Name->text().isEmpty() &&
+                        !ui->player2Name->text().isEmpty());
 }

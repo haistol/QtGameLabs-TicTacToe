@@ -21,6 +21,8 @@ public:
 
 private:
     Ui::ConfigurationDialog *ui;
+private slots:
+    void updateOKButttonState();
 };
 
 #endif // CONFIGURATIONDIALOG_H
